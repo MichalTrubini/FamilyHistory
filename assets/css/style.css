@@ -140,6 +140,7 @@ button {
   display: inline-block;
   margin-top: 4rem;
   border-radius: 3px;
+  border: none;
 }
 
 .header__link:hover {
@@ -359,6 +360,136 @@ button {
   margin-bottom: 2.2rem;
 }
 
+/*GENEALOGY*/
+
+#genealogy-top-separator {
+  background: url(../images/genealogy-top-separator.png) no-repeat;
+  padding: 0;
+  margin: 0;
+  height: 80px;
+}
+
+#genealogy-bottom-separator {
+  background: url(../images/genealogy-bottom-separator.png) no-repeat;
+  padding: 0;
+  margin: -2px 0 0 0;
+  height: 80px;
+}
+
+#genealogy {
+  padding: 0;
+}
+
+#genealogy .foto {
+  z-index: -100;
+  position: relative;
+}
+
+#genealogy .wrapper {
+  max-width: 2200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#parallax {
+  position: absolute;
+  overflow: hidden;
+  top: -50px;
+}
+
+.parallax-viewport {
+  width: 100%;
+  max-width: 2200px;
+  height: 780px;
+  z-index: -100;
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-layer-1 {
+  width: 110%;
+  height: 780px;
+  top: 0px;
+  margin-top: 0px;
+  left: -20px;
+  margin-left: 0px;
+}
+
+.parallax-layer-1 span {
+  background-attachment: scroll;
+  background-image: url(../images/0.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 103%;
+  height: 780px;
+}
+
+.parallax-layer-2 {
+  width: 103%;
+  height: 780px;
+  top: 0px;
+  margin-top: 0px;
+  left: 20px;
+  margin-left: -20.5421px;
+}
+
+.parallax-layer {
+  position: absolute;
+}
+
+.parallax-layer-2 span {
+  background-attachment: scroll;
+  background-image: url(../images/1.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  width: 100%;
+  height: 780px;
+}
+
+.parallax-layer-3 {
+  width: 105%;
+  height: 780px;
+  top: 0px;
+  margin-top: 0px;
+  left: 0px;
+  margin-left: -5px;
+}
+
+.parallax-layer-3 span {
+  background-attachment: scroll;
+  background-image: url(../images/2.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 780px;
+}
+
+#genealogy .over {
+  width: 100%;
+  height: 700px;
+}
+
 /*COATARMS*/
 
 .coatArms {
@@ -504,6 +635,11 @@ button {
   letter-spacing: 0.67px;
 }
 
+.footer__info {
+  display: flex;
+  flex-direction: column;
+}
+
 @media screen and (max-width: 768px) {
   .section {
     margin-bottom: 10rem;
@@ -552,5 +688,198 @@ button {
 
   .references__testimony {
     width: 75%;
+  }
+
+  .products__row {
+    gap: 2rem;
+  }
+
+  .services__flex {
+    flex-direction: column-reverse;
+    gap: 3rem;
+  }
+
+  .services__aboutText {
+    width: 100%;
+    text-align: center;
+  }
+
+  .services__link {
+    width: auto;
+    font-size: 1.6rem;
+  }
+
+  .services__bottom {
+    flex-direction: column;
+  }
+
+  .services__textContainer {
+    width: 100%;
+    text-align: center;
+  }
+
+  .services__image {
+    width: 50%;
+  }
+
+  .products {
+    margin-bottom: 2rem;
+  }
+
+  .header__link {
+    font-size: 1.6rem;
+  }
+
+  .coatArms__content {
+    flex-direction: column;
+  }
+  .coatArms__left,
+  .coatArms__right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .coatArms {
+    margin-bottom: 6rem;
+  }
+
+  .writtenAboutUs__content {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 2rem;
+  }
+
+  .writtenAboutUs__images{
+    width: 33%;
+    text-align: center;
+  }
+
+  .footer__content {
+    flex-direction: column-reverse;
+  }
+
+  .footer__left {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .footer__right {
+    width: 100%;
+  }
+
+  .footer__list {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6rem;
+  }
+}
+
+@media screen and (max-width:580px) {
+  .footer__left {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .footer__text, .footer__logoContainer  {
+    text-align: center;
+  }
+
+  .footer__contactContainer {
+    align-items: center;
+  }
+
+  .footer__address {
+    margin-bottom: 4rem;
+  }
+
+  .contactUS__content {
+    flex-direction: column;
+  }
+
+  .contactUs__left, .contactUs__right {
+    width: 100%;
+  }
+
+  .nav__list {
+    display: none;
+  }
+
+  .references__clients {
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 2rem;
+  }
+
+  .container {
+    padding: 0 2.4rem;
+  }
+
+  .products__rowTwo {
+    flex-direction: column-reverse;
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .references__testimony {
+    width: 100%;
+  }
+
+  .section {
+    margin-bottom: 4rem;
+  }
+
+  .header__title {
+    padding: 0;
+    margin-bottom: 3.4rem;
+  }
+
+  .about  {
+    margin-top: 0;
+  }
+
+  .heading__typeOne {
+    font-size: 3.2rem;
+  }
+
+  .headingSeparator {
+    margin-bottom: 2.5rem;
+  }
+
+  .products__heading {
+    font-size: 2rem;
+  }
+
+  .products  {
+    margin-bottom: 10rem;
+  }
+
+  .services__image {
+    width: 100%;
+  }
+
+  .writtenAboutUs__content {
+    column-gap: 6rem;
+    justify-content: center;
+  }
+
+  .contactUS__content {
+    gap: 3rem;
+  }
+
+  .link__submit {
+    margin-top: 1rem;
+  }
+
+  #genealogy, #genealogy-top-separator, #genealogy-bottom-separator {
+    display: none;
+  }
+
+  .services  {
+    padding: 4rem 0;
+  }
+
+  .services__about {
+    margin: 4rem 0;
   }
 }

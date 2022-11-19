@@ -25,6 +25,7 @@
   clear: both;
   overflow: auto;
   position: relative;
+margin:auto
 }
 .liquid-slider {
   width: 600px;
