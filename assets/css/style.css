@@ -70,24 +70,22 @@ button {
   font-size: 3.6rem;
   font-weight: 700;
   letter-spacing: 1.3px;
-  margin-bottom: 11.6rem;
   position: relative;
-}
-
-.heading__typeOne::after {
-  content: "";
-  width: 100%;
-  height: 60px;
-  display: block;
-  background: url("../images/section-separator.png") no-repeat;
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .section {
   margin-bottom: 14rem;
+}
+
+.headingSeparator {
+  margin-bottom: 8rem;
+}
+
+.about-us-separator {
+  background: url(../images/about-us-separator.png) no-repeat;
+  padding: 0;
+  margin: -28px 0 0 0;
+  height: 80px;
 }
 
 /*HEADER*/
@@ -152,6 +150,10 @@ button {
 .nav {
   display: flex;
   justify-content: flex-end;
+}
+
+.nav__logoContainer {
+  display: none;
 }
 
 .nav__list {
@@ -222,7 +224,7 @@ button {
 /*PRODUCTS*/
 
 .products {
-    margin-bottom: 10rem;
+  margin-bottom: 10rem;
 }
 
 .products__row {
@@ -266,125 +268,289 @@ button {
 }
 
 .products__gallery > img {
-    display: block;
+  display: block;
 }
 
 #products__imageOne {
-    grid-area: a;
+  grid-area: a;
 }
 
 #products__imageTwo {
-    grid-area: b;
+  grid-area: b;
 }
 
 #products__imageThree {
-    grid-area: c;
+  grid-area: c;
 }
 
-.products__flexReverse {
-    flex-direction: row-reverse;
-    margin-top: 6rem;
+.products__rowTwo {
+  flex-direction: row-reverse;
+  margin-top: 6rem;
 }
 
 /*SERVICES*/
 
 .services {
-    background: url('/assets/images/bg.jpg') no-repeat;
-    padding: 8rem 0;
-    position: relative;
-    z-index: 0;
-    top: -50px;
+  background: url("/assets/images/bg.jpg") no-repeat;
+  background-size: cover;
+  padding: 8rem 0;
+  position: relative;
+  z-index: 0;
+  top: -50px;
 }
 
 .services__list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-    justify-content: center;
-    list-style-position: inside;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  justify-content: center;
+  list-style-position: inside;
+  text-align: center;
 }
 
 .services__listItem {
-    font-size: 1.6rem;
-    font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 .services__about {
-    background-color: white;
-    margin: 8rem 0;
-    padding: 4rem 0;
+  background-color: white;
+  margin: 8rem 0;
+  padding: 4rem 0;
 }
 
 .services__flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8rem;
 }
 
 .services__link {
-    margin: 0;
-    width: 35%;
+  margin: 0;
+  width: 35%;
 }
 
 .services__aboutText {
-    width: 65%;
-    text-align: right;
+  width: 65%;
+  text-align: right;
 }
 
 .services__bottom {
-    display: flex;
-    gap: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
 }
 
 .services__textContainer {
-    width: 65%;
+  width: 65%;
 }
 
 .services__image {
-    width: 35%;
+  width: 35%;
 }
 
 .services__heading {
-    font-size: 2rem;
-    margin-bottom: 1.6rem;
+  font-size: 2rem;
+  margin-bottom: 1.6rem;
 }
 
 .services__text {
-    margin-bottom: 2.2rem;
+  margin-bottom: 2.2rem;
 }
 
 /*COATARMS*/
 
 .coatArms {
-    margin-top: -50px;
+  margin-top: -50px;
 }
 
 .coatArms__content {
-    display: flex;
-    justify-content: space-between;
-    gap: 8rem;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 8rem;
+  align-items: center;
 }
 
 .coatArms__left {
-    width: 35%;
+  width: 35%;
 }
 
 .coatArms__right {
-    width: 65%;
+  width: 65%;
 }
 
 /*WRITTEN-ABBOUT-US*/
 
 .writtenAboutUs {
-    padding: 8rem 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("../images/bg.jpg");
+  padding: 8rem 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("../images/bg.jpg");
 }
 
 .writtenAboutUs__content {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*CONTACT US*/
+
+.contactUS__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8rem;
+}
+
+.contactUs__left,
+.contactUs__right {
+  width: 50%;
+}
+
+.contactUs__left {
+  text-align: center;
+}
+
+.contactUs__form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.input,
+.textArea {
+  width: 100%;
+  padding: 1rem 2.4rem;
+  border: 1px solid rgba(54, 26, 26, 0.188);
+  border-radius: 3px;
+  outline: none;
+}
+
+.input:focus,
+.textArea:focus {
+  border: 1px solid rgb(54, 26, 26);
+}
+
+.input::placeholder,
+.textArea::placeholder {
+  color: #3c241578;
+}
+
+/*FOOTER*/
+
+.footer {
+  background-color: #603312;
+  padding: 8rem 0;
+  color: rgba(142, 122, 107, 1);
+  font-weight: 700;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer__left {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  text-align: right;
+}
+
+.footer__listItem {
+  list-style: none;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
+
+.footer__logo {
+  max-width: 25rem;
+}
+
+.footer__text {
+  font-weight: 700;
+}
+
+.footer__address {
+  margin-bottom: 2rem;
+}
+
+.footer__icon {
+  width: 20px;
+}
+
+.footer__contactContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__contact {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer__contactText {
+  font-size: 1.6rem;
+  letter-spacing: 0.67px;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    margin-bottom: 10rem;
+  }
+
+  .header__left {
+    display: none;
+  }
+
+  .header__right {
+    width: 100%;
+  }
+
+  .nav {
     justify-content: space-between;
     align-items: center;
+  }
+
+  .nav__logoContainer {
+    display: block;
+    width: 6rem;
+  }
+  .header__title {
+    font-size: 2.2rem;
+    line-height: 3rem;
+  }
+  .about__content {
+    flex-direction: column;
+  }
+
+  .products__rowOne {
+    flex-direction: column-reverse;
+  }
+
+  .headingSeparator {
+    margin-bottom: 4rem;
+  }
+
+  .about {
+    margin-top: 4rem;
+  }
+  .about__content {
+    margin: 0;
+    gap: 3rem;
+  }
+
+  .references__testimony {
+    width: 75%;
+  }
 }
