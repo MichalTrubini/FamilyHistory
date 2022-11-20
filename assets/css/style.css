@@ -170,6 +170,10 @@ button {
   letter-spacing: 1.5px;
 }
 
+.nav__hamburger {
+  display: none;
+}
+
 /*ABOUT*/
 
 .about {
@@ -804,6 +808,10 @@ button {
     display: none;
   }
 
+  .nav__hamburger {
+    display: block;
+  }
+  
   .references__clients {
     flex-wrap: wrap;
     justify-content: center;
