@@ -74,7 +74,9 @@
     <![endif]-->
 </head>
 
-<body>
+<body id="bodyElement">
+    <div id="mobileOverlay"></div>
+    <div id="overlayMenu"></div>
  <!-- HEADER -->
     <header class="header">
         <div class="container">
@@ -86,10 +88,11 @@
                     <img src='assets/images/icon-hamburger.svg' alt="mobile menu" id="mobileMenuIcon"/>
                 </div>
                 <ul class="nav__list" id="mobileMenu">
+                    <a href="#"><li class="nav__listItem nav__listItemMobile"><img src="/assets/images/section-separator.png" alt="separator"/></li></a>
                     <li class="nav__listItem">kráľovský produkt</li>
-                    <li class="nav__listItem">erby</li>
-                    <li class="nav__listItem">o nás</li>
-                    <li class="nav__listItem">kontakt</li>
+                    <a href="#coatOfArmsSection" class="nav__listLink"><li class="nav__listItem">erby</li></a>
+                    <a href="#aboutUsSection" class="nav__listLink"><li class="nav__listItem">o nás</li></a>
+                    <a href="#contactSection" class="nav__listLink"><li class="nav__listItem">kontakt</li></a>
                 </ul>
             </nav>
             <div class="header__content">
@@ -111,7 +114,7 @@
  <!-- MAIN -->
  <main>
     <a><div class="about-us-separator"></div></a>
-    <section class="about section">
+    <section class="about section" id="aboutUsSection">
         <div class="container">
             <div class="headingSeparator">
                 <h2 class="heading__typeOne">Čo robíme</h2>
@@ -151,7 +154,7 @@ Výsledok jeho profesionálneho prístupu v podobe knihy v koženej väzbe a naj
         </div>
     </section>
 
-    <section class="products section">
+    <section class="products section" id="productsSection">
         <div class="container">
             <div class="headingSeparator">
                 <h2 class="about__heading heading__typeOne">naše rodokmene</h2>
@@ -263,7 +266,7 @@ Výsledok jeho profesionálneho prístupu v podobe knihy v koženej väzbe a naj
         </div>
     </section>
  
-    <section class="coatArms section">
+    <section class="coatArms section" id="coatOfArmsSection">
         <div class="container">
             <div class="headingSeparator">
                 <h2 class="heading__typeOne">Erby</h2>
@@ -307,7 +310,7 @@ Výsledok jeho profesionálneho prístupu v podobe knihy v koženej väzbe a naj
         </div>
     </section>
 
-    <section class="contactUs section">
+    <section class="contactUs section" id="contactSection">
         <div class="container">
             <div class="headingSeparator">
                 <h2 class="heading__typeOne">Ozvite sa nám</h2>

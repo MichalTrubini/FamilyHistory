@@ -39,6 +39,24 @@ $(document).ready(function () {
   });
 });
 
+
+/*-----------------------------------------------------------------------------------*/
+/*	 MENU OVERLAY
+ /*-----------------------------------------------------------------------------------*/
+
+ const overlayMenu = document.getElementById("overlayMenu");
+ let baseScrollTop = 0;
+ 
+ window.addEventListener("scroll", function(){
+    let currentScrollPosition = window.pageYOffset;
+ 
+    if (currentScrollPosition > baseScrollTop){
+     overlayMenu.classList.add('overlayMenuOpacity')
+    } else {
+     overlayMenu.classList.remove('overlayMenuOpacity')
+    }
+ });
+
 /*-----------------------------------------------------------------------------------*/
 /*	 MOBILE MENU
  /*-----------------------------------------------------------------------------------*/
@@ -47,13 +65,44 @@ const mobileMenuIcon = document.getElementById("mobileMenuIcon");
 const mobileMenu = document.getElementById("mobileMenu");
 const hamburgerPath = "assets/images/icon-hamburger.svg";
 const closePath = "assets/images/icon-close.svg";
+const overlay = document.getElementById("mobileOverlay");
+const listLinks = document.querySelectorAll('.nav__listLink');
 
 mobileMenuIcon.addEventListener("click", () => {
   if (mobileMenuIcon.getAttribute("src") === hamburgerPath) {
     mobileMenuIcon.src = closePath;
-    mobileMenu.classList.add("mobileMenuVisible")
-  } else mobileMenuIcon.src = hamburgerPath;
+    mobileMenu.classList.add("mobileMenuVisible");
+    overlay.classList.add('mobileOverlayVisible')
+  } else {
+    mobileMenuIcon.src = hamburgerPath;
+    mobileMenu.classList.remove("mobileMenuVisible");
+    overlay.classList.remove('mobileOverlayVisible')
+  }
 });
+
+listLinks.forEach(item => {
+  item.addEventListener('click', (event) => {
+
+    event.preventDefault();
+    let hrefAtt = item.getAttribute('href');
+    let jumpToSection = document.querySelector(hrefAtt)
+    let rect = jumpToSection.getBoundingClientRect();
+    console.log(rect.top, rect.right, rect.bottom, rect.left);
+    console.log(jumpToSection)
+    mobileMenuIcon.src = hamburgerPath;
+    mobileMenu.classList.remove("mobileMenuVisible");
+    overlay.classList.remove('mobileOverlayVisible');
+
+    window.scrollBy(0, rect.top);
+  })
+})
+
+overlay.addEventListener('click', () => {
+  overlay.classList.remove('mobileOverlayVisible');
+  mobileMenu.classList.remove("mobileMenuVisible");
+  mobileMenuIcon.src = hamburgerPath;
+})
+
 
 /*-----------------------------------------------------------------------------------*/
 /*	 TESTIMONIAL 

@@ -70,7 +70,6 @@ button {
   font-size: 3.6rem;
   font-weight: 700;
   letter-spacing: 1.3px;
-  position: relative;
 }
 
 .section {
@@ -151,6 +150,10 @@ button {
 .nav {
   display: flex;
   justify-content: flex-end;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  max-width: 110rem;
 }
 
 .nav__logoContainer {
@@ -168,10 +171,41 @@ button {
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1.5px;
+  color: #3c2415;;
 }
 
-.nav__hamburger {
+.nav__hamburger, .nav__listItemMobile {
   display: none;
+}
+
+#mobileOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.mobileOverlayVisible {
+  display: block!important;
+}
+
+#overlayMenu {
+  position: fixed;
+  z-index: 5;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  height: 6rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0 0 3px 3px;
+}
+
+.overlayMenuOpacity {
+  background-color: rgba(255, 255, 255, 1)!important;
 }
 
 /*ABOUT*/
@@ -753,7 +787,7 @@ button {
     row-gap: 2rem;
   }
 
-  .writtenAboutUs__images{
+  .writtenAboutUs__images {
     width: 33%;
     text-align: center;
   }
@@ -776,15 +810,28 @@ button {
     align-items: center;
     margin-bottom: 6rem;
   }
+
+  #overlayMenu {
+    height: 10rem;
 }
 
-@media screen and (max-width:580px) {
+.nav {
+  width: calc(100vw - 8rem);
+}
+
+.header__content {
+  padding: 13rem 0 6rem;
+}
+}
+
+@media screen and (max-width: 580px) {
   .footer__left {
     flex-direction: column;
     gap: 4rem;
   }
 
-  .footer__text, .footer__logoContainer  {
+  .footer__text,
+  .footer__logoContainer {
     text-align: center;
   }
 
@@ -800,18 +847,36 @@ button {
     flex-direction: column;
   }
 
-  .contactUs__left, .contactUs__right {
+  .contactUs__left,
+  .contactUs__right {
     width: 100%;
   }
 
   .nav__list {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 10rem 0 4rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0 0 3px 3px;
+    transform: translateY(-100%);
+    transition: all 0.5s ease;
   }
 
-  .nav__hamburger {
+  .nav__hamburger, .nav__logoContainer {
     display: block;
+    position: relative;
+    z-index: 99;
   }
-  
+
+  .nav {
+    width: calc(100vw - 4.8rem);
+  }
   .references__clients {
     flex-wrap: wrap;
     justify-content: center;
@@ -826,9 +891,10 @@ button {
     flex-direction: column-reverse;
     margin-top: 4rem;
   }
+
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width: 425px) {
   .references__testimony {
     width: 100%;
   }
@@ -842,7 +908,7 @@ button {
     margin-bottom: 3.4rem;
   }
 
-  .about  {
+  .about {
     margin-top: 0;
   }
 
@@ -858,7 +924,7 @@ button {
     font-size: 2rem;
   }
 
-  .products  {
+  .products {
     margin-bottom: 10rem;
   }
 
@@ -879,15 +945,26 @@ button {
     margin-top: 1rem;
   }
 
-  #genealogy, #genealogy-top-separator, #genealogy-bottom-separator {
+  #genealogy,
+  #genealogy-top-separator,
+  #genealogy-bottom-separator {
     display: none;
   }
 
-  .services  {
+  .services {
     padding: 4rem 0;
   }
 
   .services__about {
     margin: 4rem 0;
+  }
+
+  .mobileMenuVisible {
+    transform: translateY(0);
+    transition: all 0.5s ease;
+  }
+
+  .nav__listItemMobile {
+    display: flex;
   }
 }
