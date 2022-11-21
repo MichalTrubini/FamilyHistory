@@ -71,12 +71,13 @@ overlay.addEventListener('click', () => {
 /*	 SCROLL TO SECTION
  /*-----------------------------------------------------------------------------------*/
 
- const listLinks = document.querySelectorAll('.nav__listLink');
+ const listLinks = document.querySelectorAll('.jumpToSection');
 
  listLinks.forEach(item => {
   item.addEventListener('click', (event) => {
 
     event.preventDefault();
+
     let hrefAtt = item.getAttribute('href');
     let jumpToSection = document.querySelector(hrefAtt);
     let rect = jumpToSection.getBoundingClientRect();
@@ -152,8 +153,48 @@ circles.forEach(item => {
   if (counterStringified() === item.id) {item.classList.add('slider__circleFull')} ;
 })
 
+/*-----------------------------------------------------------------------------------*/
+/*	 FORM VALIDATION 
+ /*-----------------------------------------------------------------------------------*/
 
+const formButton = document.getElementById('buttonFormSubmit');
+const inputName = document.getElementById('input__name');
+const inputSurname = document.getElementById('input__surname');
+const inputEmail = document.getElementById('input__email');
+const inputTextArea = document.getElementById('input__textArea');
 
+const inputErrorName = document.getElementById('input__errorName');
+const inputErrorNSurname = document.getElementById('input__errorSurname');
+const inputErrorEmailEmpty = document.getElementById('input__errorEmailEmpty');
+const inputErrorEmailFormat = document.getElementById('input__errorEmailFormat');
+const inputErrorTextArea = document.getElementById('input__errorTextArea');
 
+const regex = /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/;
 
+formButton.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  if (inputName.value.trim().length === 0) return inputErrorName.classList.add('input__errorNameVisible');
+  if (inputSurname.value.trim().length === 0) return inputErrorNSurname.classList.add('input__errorNameVisible');
+  if (inputEmail.value.trim().length === 0) return inputErrorEmailEmpty.classList.add('input__errorNameVisible');
+  if(regex.test(inputEmail.value) === false) return inputErrorEmailFormat.classList.add('input__errorNameVisible');
+  if (inputTextArea.value.trim().length === 0) return inputErrorTextArea.classList.add('input__errorNameVisible');
+})
+
+inputName.addEventListener('click', () => {
+  inputErrorName.classList.remove('input__errorNameVisible')
+})
+
+inputSurname.addEventListener('click', () => {
+  inputErrorNSurname.classList.remove('input__errorNameVisible')
+})
+
+inputEmail.addEventListener('click', () => {
+  inputErrorEmailEmpty.classList.remove('input__errorNameVisible');
+  inputErrorEmailFormat.classList.remove('input__errorNameVisible');
+})
+
+inputTextArea.addEventListener('click', () => {
+  inputErrorTextArea.classList.remove('input__errorNameVisible')
+})
 
