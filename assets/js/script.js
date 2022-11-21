@@ -1,20 +1,6 @@
-document.documentElement.className = "js";
-
-function show(div) {
-  document.getElementById("content-1").style.display = "none";
-  document.getElementById("content-2").style.display = "none";
-
-  document.getElementById("kralovska").src = "assets/images/icon11.png";
-  document.getElementById("lud").src = "assets/images/icon21.png";
-
-  if (div == "1") {
-    document.getElementById("kralovska").src = "assets/images/icon1.png";
-  }
-  if (div == "2") {
-    document.getElementById("lud").src = "assets/images/icon2.png";
-  }
-  document.getElementById("content-" + div).style.display = "block";
-}
+/*-----------------------------------------------------------------------------------*/
+/*	 PARALLAX
+ /*-----------------------------------------------------------------------------------*/
 
 $(document).ready(function () {
   $("#parallax .parallax-layer").parallax({
@@ -33,10 +19,6 @@ $(document).ready(function () {
     return false;
   });
 
-  $(".kwicks").kwicks({
-    maxSize: 250,
-    behavior: "menu",
-  });
 });
 
 
@@ -66,7 +48,6 @@ const mobileMenu = document.getElementById("mobileMenu");
 const hamburgerPath = "assets/images/icon-hamburger.svg";
 const closePath = "assets/images/icon-close.svg";
 const overlay = document.getElementById("mobileOverlay");
-const listLinks = document.querySelectorAll('.nav__listLink');
 
 mobileMenuIcon.addEventListener("click", () => {
   if (mobileMenuIcon.getAttribute("src") === hamburgerPath) {
@@ -80,137 +61,99 @@ mobileMenuIcon.addEventListener("click", () => {
   }
 });
 
-listLinks.forEach(item => {
-  item.addEventListener('click', (event) => {
-
-    event.preventDefault();
-    let hrefAtt = item.getAttribute('href');
-    let jumpToSection = document.querySelector(hrefAtt)
-    let rect = jumpToSection.getBoundingClientRect();
-    console.log(rect.top, rect.right, rect.bottom, rect.left);
-    console.log(jumpToSection)
-    mobileMenuIcon.src = hamburgerPath;
-    mobileMenu.classList.remove("mobileMenuVisible");
-    overlay.classList.remove('mobileOverlayVisible');
-
-    window.scrollBy(0, rect.top);
-  })
-})
-
 overlay.addEventListener('click', () => {
   overlay.classList.remove('mobileOverlayVisible');
   mobileMenu.classList.remove("mobileMenuVisible");
   mobileMenuIcon.src = hamburgerPath;
 })
 
-
 /*-----------------------------------------------------------------------------------*/
-/*	 TESTIMONIAL 
+/*	 SCROLL TO SECTION
  /*-----------------------------------------------------------------------------------*/
 
-$("#testimonial").owlCarousel({
-  autoPlay: true,
-  stopOnHover: true,
-  navigation: false,
-  paginationSpeed: 1000,
-  goToFirstSpeed: 2000,
-  singleItem: true,
-  autoHeight: true,
-  transitionStyle: "fade",
+ const listLinks = document.querySelectorAll('.nav__listLink');
+
+ listLinks.forEach(item => {
+  item.addEventListener('click', (event) => {
+
+    event.preventDefault();
+    let hrefAtt = item.getAttribute('href');
+    let jumpToSection = document.querySelector(hrefAtt);
+    let rect = jumpToSection.getBoundingClientRect();
+
+    mobileMenuIcon.src = hamburgerPath;
+    mobileMenu.classList.remove("mobileMenuVisible");
+    overlay.classList.remove('mobileOverlayVisible');
+
+    window.scrollBy(0, rect.top -100);
+  })
+})
+
+/*-----------------------------------------------------------------------------------*/
+/*	 NAV WIDTH
+ /*-----------------------------------------------------------------------------------*/
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  const navElement = document.querySelector('.nav');
+  const headerElement = document.querySelector('.header__content');
+  const headerElementWidth = headerElement.offsetWidth;
+
+  navElement.style.width = headerElementWidth + 'px'
+
 });
 
 /*-----------------------------------------------------------------------------------*/
-/*	CLIENTS SLIDER
+/*	 SLIDER 
  /*-----------------------------------------------------------------------------------*/
-$("#clients").owlCarousel({
-  autoPlay: true,
-  stopOnHover: true,
-  navigation: false,
-  paginationSpeed: 1000,
-  goToFirstSpeed: 2000,
-  singleItem: false,
-  autoHeight: true,
-  transitionStyle: "fade",
-});
 
-/*-----------------------------------------------------------------------------------*/
-/*	LIQUID SLIDER
- /*-----------------------------------------------------------------------------------*/
-$("#slider-1").liquidSlider({
-  continuous: false,
-  slideEaseFunction: "easeInOutCubic",
-});
-$("#slider-2").liquidSlider({
-  continuous: false,
-  slideEaseFunction: "easeInOutCubic",
-  hoverArrows: false,
-});
-$("#slider-3").liquidSlider({
-  continuous: false,
-  slideEaseDuration: 500,
-  slideEaseFunction: "easeInOutCubic",
-  hoverArrows: false,
-});
-$("#slider-4").liquidSlider({
-  continuous: false,
-  slideEaseDuration: 500,
-  slideEaseFunction: "easeInOutCubic",
-});
-$("#slider-5").liquidSlider({
-  continuous: false,
-  slideEaseDuration: 500,
-  slideEaseFunction: "easeInOutCubic",
-});
-var api = $.data($("#slider-1")[0], "liquidSlider");
-var api4 = $.data($("#slider-4")[0], "liquidSlider");
-$(".prev-link").on("click", function () {
-  api4.setNextPanel(0);
-  api4.updateClass($(this));
-});
-$(".next-link").on("click", function () {
-  api4.setNextPanel(1);
-  api4.updateClass($(this));
-});
-$(".dots li:nth-child(1) a").addClass("ls-current");
+const coatLeftEl = document.querySelector('.coatArms__left');
+const coatLeftElWidth = coatLeftEl.offsetWidth;
+const sliderImages = document.querySelectorAll('.slider__image');
+const sliderImageContainer = document.querySelector('.slider__imageContainer');
+let style = getComputedStyle(sliderImageContainer);
+let imagePadding = Number(style.padding.replace('px',''));
+const prevButton = document.getElementById('slider__arrowLeft');
+const nextButton = document.getElementById('slider__arrowRight');
+const slider = document.getElementById('slider__AV54');
+const circles = document.querySelectorAll('.slider__circleEmpty');
 
-function activateDots(id, t) {
-  api.setNextPanel(id);
-  api.updateClass(t);
-  return false;
+let counter = 1;
+
+const counterStringified = () => {
+  if (counter === 1) return 'circleOne';
+  if (counter === 2) return 'circleTwo';
+  if (counter === 3) return 'circleThree'
 }
 
-$(document).on("shown.bs.tab", '#my-tab a[data-toggle="tab"]', function (e) {
-  var tab = $(e.target);
-  var contentId = tab.attr("href");
-  var prefix = "";
-  prefix = $("#my-tab").data("lang") !== undefined ? "../" : "";
+sliderImages.forEach(item => {
+  item.style.width = (coatLeftElWidth - 2*imagePadding) + 'px'
+})
 
-  if (contentId === "#b") {
-    $("#king").attr("src", prefix + "assets/images/icon11.png");
-    $("#folk").attr("src", prefix + "assets/images/icon2.png");
-  }
-  if (contentId === "#a") {
-    $("#king").attr("src", prefix + "assets/images/icon1.png");
-    $("#folk").attr("src", prefix + "assets/images/icon21.png");
-  }
-});
+prevButton.addEventListener('click', () => {
+  slider.scrollLeft -= coatLeftElWidth;
+  if (counter !== 1) counter -=1;
 
-/*-----------------------------------------------------------------------------------*/
-/*	OPEN CLIENT ZONE
- /*-----------------------------------------------------------------------------------*/
-$("#openClient button").click(function () {
-  var inputVal = $("#openClient input").val();
-  var testURL = "http://" + inputVal + ".familyhistory.sk/true.php";
-  var redirectURL = "http://" + inputVal + ".familyhistory.sk";
-  $.ajax({
-    type: "POST",
-    url: testURL,
-    success: function () {
-      window.location.replace(redirectURL);
-    },
-    error: function () {
-      alert("ID klienta neexistuje. Zadali ste ho správne?");
-    },
-  });
-  return false;
-});
+  circles.forEach(item => {
+    if (counterStringified() === item.id) {item.classList.add('slider__circleFull')} else item.classList.remove('slider__circleFull');
+  })
+})
+
+nextButton.addEventListener('click', () => {
+  slider.scrollLeft += coatLeftElWidth;
+  if (counter !== 3) counter +=1;
+
+  circles.forEach(item => {
+    if (counterStringified() === item.id) {item.classList.add('slider__circleFull')} else item.classList.remove('slider__circleFull');
+  })
+})
+
+circles.forEach(item => {
+  if (counterStringified() === item.id) {item.classList.add('slider__circleFull')} ;
+})
+
+
+
+
+
+
