@@ -614,10 +614,8 @@ button {
   background: linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("../images/bg.jpg");
 }
 
-.writtenAboutUs__content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.writtenAboutUs__images > img {
+margin: auto;
 }
 
 /*CONTACT US*/
