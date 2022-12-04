@@ -225,4 +225,25 @@ $(document).ready(function () {
       },
     ],
   });
+  $(".references__clients").slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 426,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+  });
 });
